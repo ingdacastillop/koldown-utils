@@ -12,6 +12,9 @@
     "autoload": {
         "psr-4": {
             "Koldown\\Utils\\": "src/"
-        }
+        },
+        "files": [
+            "src/helpers.php"
+        ]
     }
 }
