@@ -33,7 +33,7 @@ class DataTransfer implements IDataTransfer {
         $array = []; // Formato tradicional de PHP
         
         foreach ($data as $item) {
-            array_push($array, (is_array_json($item)) ? new DataTransfer($item) : $item);
+            array_push($array, (is_array_json($item)) ? new static($item) : $item);
         } // Cargando items en el array
         
         return $array; // Retornando datos en array
