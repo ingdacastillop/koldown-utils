@@ -93,7 +93,7 @@ class DataTransfer implements IDataTransfer {
         foreach (array_keys($this->data) as $key) {
             $value = $this->data[$key]; // Valor de clave
             
-            if ($value instanceof IJson) {
+            if ($value instanceof IDataTransfer) {
                 $json[$key] = $value->toArray();
             } else if (is_array($value)) {
                 $json[$key] = $this->jsonToArray($value);
@@ -137,7 +137,7 @@ class DataTransfer implements IDataTransfer {
      */
     private function mapArrayJson(string $key, $array): void {
         if (is_array_json($array)) {
-            $this[$key] = new DataTransfer($array); // Array JSON
+            $this[$key] = new static($array); // Array JSON
         } else {
             $array_new = []; // Array indexado
             
@@ -155,7 +155,7 @@ class DataTransfer implements IDataTransfer {
      * @return mixed
      */
     private function mapItem($item) {
-        return (is_array($item)) ? new DataTransfer($item) : $item;
+        return (is_array($item)) ? new static($item) : $item;
     }
     
     /**
