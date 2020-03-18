@@ -1,5 +1,6 @@
 {
     "name": "koldown/utils",
+    "type": "library",
     "license": "MIT",
     "authors": [
         {
